@@ -2,7 +2,7 @@
 $site = get_the_title();
 get_header(); 
 ?>
-<main class="page-content">
+<main class="page-content-news">
     <section id="news">
         <?php 
             if(have_posts()){

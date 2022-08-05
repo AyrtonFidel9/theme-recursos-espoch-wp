@@ -12,7 +12,7 @@ const body = document.querySelector("body");
 const nav = document.querySelectorAll("nav > img");
 const main = document.querySelector("main");
 const footer = document.querySelector("footer");
-//const header = document.querySelector("header");
+const header = document.querySelector("header");
 const navigate = document.querySelector("nav");
 
 /**Media queries**/
@@ -56,8 +56,7 @@ const ocultSubMenu = () => {
 
 const showSubMenu = () => {
     subMenu.forEach((option) => {
-        option.classList.remove('ocult');
-        setTimeout(() => option.classList.add('anim-open'),100);
+        setTimeout(() => option.classList.remove('ocult'),100);
     });
 }
 
@@ -98,7 +97,8 @@ function handleLaptopChange(e) {
             align-items: center;
             width: 100%;
             height: 100%;
-            background: var(--menu-principal-color);`;
+            background: var(--menu-principal-color);
+            backdrop-filter: blur(2px);`;
         nav[0].classList.remove('ocult');
         nav[1].classList.remove('ocult');
         main.classList.remove('ocult');
@@ -111,10 +111,12 @@ function handleLaptopChange(e) {
     }
     else{
         menuPrincipal.parentElement.style=`
-            display: none;`;
+            display: none;
+            backdrop-filter: blur(2px);`;
         menu.classList.remove('ocult');
     }
 }
+
 
 /* ¡Importante! */
 /* El siguiente codigo sirve para que los eventos se agreguen
@@ -129,6 +131,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     handleLaptopChange(mediaQuery);
     addClickOptions();
     addHoverOptions();
+});
+
+document.addEventListener('scroll', (e)=>{
+    if(header!= null){
+        if(window.scrollY>=header.offsetHeight){
+            navigate.style=`background-color: white;
+            backdrop-filter: blur(2px);`;
+        }
+        else{
+            navigate.style=`background:var(--header-transparent)
+            backdrop-filter: blur(2px);`;
+        }
+    }else{
+        navigate.style=`background-color: white;
+        backdrop-filter: blur(2px);`;
+    }
 });
 
 
