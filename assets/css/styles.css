@@ -141,6 +141,7 @@ header{
     flex-direction: column;
     padding: 1rem 0rem;
 }
+
 .news__card-content a{
     align-self: end;
 }
@@ -161,7 +162,7 @@ header{
     justify-self: flex-end;
 }
 
-#contact{
+/* #contact{
     height: 40vh;
     min-width: 32rem;
     padding: 2rem 0rem;
@@ -186,17 +187,10 @@ header{
 }
 .contact__image{
     place-self: center;
-}
-footer{
-    height: 60vh;
-    min-width: 32rem;
-    background: var(--footer-color);
-    text-align: center;
-    display: grid;
-    align-content: center;
-}
+} */
 
-#ubication{
+
+/* #ubication{
     width: 100%;
     height: auto;
 }
@@ -205,7 +199,7 @@ footer{
     height: 30rem;
     min-width: 32rem;
     width: 100%;
-}
+} */
 
 #accesos-directos
 {
@@ -228,6 +222,7 @@ footer{
 
 .accesos-directos_container ul > li {
     display: inline-block;
+    margin-inline: 1.1rem;
     margin-bottom: 1.7rem;
 }
 
@@ -242,25 +237,47 @@ footer{
     padding: 0.7rem;
  }
 
+#social-networks {
+    padding-top: 14.5rem;
+    margin-top: 5rem;
+} 
+
 #social-networks a{
     text-decoration: none;
 }
 
-footer h2{
-    margin-top: 3rem;
-    margin-bottom: 1.3rem;
-}
 
 #social-networks a img{
     height: 3.4rem;
     margin: 1rem;
 }
 
-.footer-contenido{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+footer{
+    height: 60vh;
+    min-width: 32rem;
+    background: var(--footer-color);
+    display: grid;
+    align-content: center;
+    text-align: center;
+    padding-bottom: 21.5rem;
+    margin-bottom: 3.5rem;
+    
 }
 
+footer h2{
+    margin-top: 1.7rem;
+    margin-bottom: 1.1rem;
+}
+
+.footer-contenido{
+    margin:1.5rem;
+}
+
+.contenido{
+    margin-top: 1.25rem;
+    align-items: center;
+    text-align: center;   
+}
  /*
 .btn.btn-social-icon {
     width: 3.12rem;
