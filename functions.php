@@ -42,6 +42,13 @@ function rec_assets()
         false,
         '(max-width: 425px)'
     );
+    wp_enqueue_style(
+        "media-laptop", 
+        get_template_directory_uri()."/assets/css/laptop.css", 
+        array(),
+        false,
+        '(min-width: 769px)'
+    );
 
     wp_enqueue_script(
         "webpage-js",

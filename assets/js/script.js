@@ -131,6 +131,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     handleLaptopChange(mediaQuery);
     addClickOptions();
     addHoverOptions();
+    if(header!= null){
+        document.querySelectorAll(".subitem__secondary")
+        .forEach( tag  => tag.style="background-color: var(--subitem-principal-color);");
+    }else{
+        document.querySelectorAll(".subitem__secondary")
+        .forEach( tag  => tag.style="background-color: #fffdd6;");
+    }
 });
 
 document.addEventListener('scroll', (e)=>{
@@ -138,14 +145,20 @@ document.addEventListener('scroll', (e)=>{
         if(window.scrollY>=header.offsetHeight){
             navigate.style=`background-color: white;
             backdrop-filter: blur(2px);`;
+            document.querySelectorAll(".subitem__secondary")
+                .forEach( tag  => tag.style="background-color: #fffdd6;");
         }
         else{
             navigate.style=`background:var(--header-transparent)
             backdrop-filter: blur(2px);`;
+            document.querySelectorAll(".subitem__secondary")
+            .forEach( tag  => tag.style="background-color: var(--subitem-principal-color);");
         }
     }else{
         navigate.style=`background-color: white;
         backdrop-filter: blur(2px);`;
+        document.querySelectorAll(".subitem__secondary")
+        .forEach( tag  => tag.style="background-color: #fffdd6;");
     }
 });
 
