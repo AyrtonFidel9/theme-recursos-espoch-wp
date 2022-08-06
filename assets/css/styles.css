@@ -147,6 +147,7 @@ header {
     padding: 1rem 0rem;
 }
 
+
 .news__card-content a {
     align-self: end;
 }
@@ -167,7 +168,7 @@ header {
     justify-self: flex-end;
 }
 
-#contact {
+/* #contact{
     height: 40vh;
     min-width: 32rem;
     padding: 2rem 0rem;
@@ -193,18 +194,10 @@ header {
 
 .contact__image {
     place-self: center;
-}
+} */
 
-footer {
-    height: 60vh;
-    min-width: 32rem;
-    background: var(--footer-color);
-    text-align: center;
-    display: grid;
-    align-content: center;
-}
 
-#ubication {
+/* #ubication{
     width: 100%;
     height: auto;
 }
@@ -213,7 +206,7 @@ footer {
     height: 30rem;
     min-width: 32rem;
     width: 100%;
-}
+} */
 
 #accesos-directos {
     min-width: 32rem;
@@ -235,8 +228,15 @@ footer {
     color: var(--green-dark-opacity);
 }
 
-.accesos-directos_container ul>li {
+.accesos-directos_container a:hover{
+    font-size: 1.75rem;
+    color:rgba(22, 98, 212, 0.903)
+}
+
+
+.accesos-directos_container ul > li {
     display: inline-block;
+    margin-inline: 1.1rem;
     margin-bottom: 1.7rem;
 }
 
@@ -250,23 +250,100 @@ footer {
     padding: 0.7rem;
 }
 
-#social-networks a {
+footer{
+    height: auto;
+    min-width: 32rem;
+    background: var(--footer-color);
+    display: block;
+    /* grid-template-columns: [x0] 1fr [x1] 1fr ;
+    grid-template-rows: [y0] 1fr [y1] 1fr; */
+    align-items: center;
+    place-content: center;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding-bottom: 0.1rem;
+    padding-top: 0.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;   
+}
+
+#container-footer{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    place-content: center;
+}
+
+footer h2{
+    margin-top: 1.7rem;
+    margin-bottom: 1.1rem;
+}
+
+#social-networks {
+    align-self: start;
+    /* grid-column: x0/ x1; */
+    display: block;
+    margin-right: 3.5rem;
+} 
+
+#social-networks a{
     text-decoration: none;
 }
 
-footer h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.3rem;
+#social-networks a img{
+    height: 2.75rem;
+    margin: 1rem;
+}
+#social-networks a img:hover{
+    height: 3.15rem;
 }
 
-#social-networks a img {
-    height: 3.4rem;
+
+#contacto{
+    align-items: center;
+    display: block;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    /* grid-column:x1/x1;
+    grid-row: y0/y1; */
+}
+
+#contacto img{
+    height: 2.5rem;
     margin: 1rem;
 }
 
-.footer-contenido {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+.footer-inf{
+    display:flex;
+    place-content: justify;
+    align-items: center;
+}
+
+
+#ubicacion{
+    align-self: start;
+    text-align: justify;
+    /* grid-column:x2/x2;  
+    grid-row: y0/y1; */
+    line-height: 3.15rem;
+    margin-left: 3.5rem;
+    display: block; 
+}
+
+#ubicacion h2{
+    text-align: center;
+}
+
+
+#contenido{
+    /* grid-column: x1/x3; 
+    grid-row: y0/y2; */
+    padding-top: 3.5rem;
+    display: block;
+    align-items: center;
+    text-align: center;  
+    border-bottom: 0.25rem solid #05b62861;
+    margin-bottom: 1.5rem;
 }
 
 /*
@@ -315,8 +392,6 @@ footer h2 {
     transform: none;
     -webkit-transform: none;
 }
-
-
 
 .menu__option {
     width: 80%;
