@@ -220,6 +220,12 @@ header{
     color: var(--green-dark-opacity);
 }
 
+.accesos-directos_container a:hover{
+    font-size: 1.75rem;
+    color:rgba(22, 98, 212, 0.903)
+}
+
+
 .accesos-directos_container ul > li {
     display: inline-block;
     margin-inline: 1.1rem;
@@ -237,31 +243,29 @@ header{
     padding: 0.7rem;
  }
 
-#social-networks {
-    padding-top: 14.5rem;
-    margin-top: 5rem;
-} 
-
-#social-networks a{
-    text-decoration: none;
-}
-
-
-#social-networks a img{
-    height: 3.4rem;
-    margin: 1rem;
-}
 
 footer{
-    height: 60vh;
+    height: auto;
     min-width: 32rem;
     background: var(--footer-color);
-    display: grid;
-    align-content: center;
+    display: block;
+    /* grid-template-columns: [x0] 1fr [x1] 1fr ;
+    grid-template-rows: [y0] 1fr [y1] 1fr; */
+    align-items: center;
+    place-content: center;
     text-align: center;
-    padding-bottom: 21.5rem;
     margin-bottom: 3.5rem;
-    
+    padding-bottom: 0.1rem;
+    padding-top: 0.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;   
+}
+
+#container-footer{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    place-content: center;
 }
 
 footer h2{
@@ -269,15 +273,73 @@ footer h2{
     margin-bottom: 1.1rem;
 }
 
-.footer-contenido{
-    margin:1.5rem;
+#social-networks {
+    align-self: start;
+    /* grid-column: x0/ x1; */
+    display: block;
+    margin-right: 3.5rem;
+} 
+
+#social-networks a{
+    text-decoration: none;
 }
 
-.contenido{
-    margin-top: 1.25rem;
-    align-items: center;
-    text-align: center;   
+#social-networks a img{
+    height: 2.75rem;
+    margin: 1rem;
 }
+#social-networks a img:hover{
+    height: 3.15rem;
+}
+
+
+#contacto{
+    align-items: center;
+    display: block;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    /* grid-column:x1/x1;
+    grid-row: y0/y1; */
+}
+
+#contacto img{
+    height: 2.5rem;
+    margin: 1rem;
+}
+
+.footer-inf{
+    display:flex;
+    place-content: justify;
+    align-items: center;
+}
+
+
+#ubicacion{
+    align-self: start;
+    text-align: justify;
+    /* grid-column:x2/x2;  
+    grid-row: y0/y1; */
+    line-height: 3.15rem;
+    margin-left: 3.5rem;
+    display: block; 
+}
+
+#ubicacion h2{
+    text-align: center;
+}
+
+
+#contenido{
+    /* grid-column: x1/x3; 
+    grid-row: y0/y2; */
+    padding-top: 3.5rem;
+    display: block;
+    align-items: center;
+    text-align: center;  
+    border-bottom: 0.25rem solid #05b62861;
+    margin-bottom: 1.5rem;
+}
+
  /*
 .btn.btn-social-icon {
     width: 3.12rem;
@@ -323,8 +385,6 @@ footer h2{
     transform: none;
     -webkit-transform:none;
 }
-
-
 
 .menu__option {
     width: 80%;
