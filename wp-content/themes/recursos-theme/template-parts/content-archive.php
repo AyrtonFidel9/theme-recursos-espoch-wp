@@ -9,6 +9,6 @@
             the_excerpt();
             ?>
         </p>
-        <a href="<?php the_permalink(); ?>">Leer más</a>
+        <a href="<?php the_permalink(); ?>">Leer más ➤</a>
     </div>
 </article>

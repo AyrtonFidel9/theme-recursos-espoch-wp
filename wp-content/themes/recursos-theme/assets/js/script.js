@@ -14,10 +14,16 @@ const main = document.querySelector("main");
 const footer = document.querySelector("footer");
 const header = document.querySelector("header");
 const navigate = document.querySelector("nav");
+const sugerenciaBtn = document.querySelector(".sugerencia__boton");
+const sugerencia = document.querySelector("#sugerencias_form");
+const sugerenciaClose = document.querySelector(".sugerencia__close");
+
 
 /**Media queries**/
 
 const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+const mqTablet = window.matchMedia('(min-width: 769px) and (max-width: 1070px)');
 
 
 const openMenu = (event) => {
@@ -31,6 +37,16 @@ const openMenu = (event) => {
     setTimeout(() => mainMenu.classList.add('anim-menu'), 100);
 }
 
+
+const openMenuTablet = (event) => {
+    mainMenu.classList.remove('ocult');
+    navigate.style.background="none";
+    nav[0].classList.remove('ocult');
+    nav[1].classList.remove('ocult');
+    main.classList.remove('ocult');
+    footer.classList.remove('ocult');
+    setTimeout(() => mainMenu.classList.add('anim-menu'), 100);
+}
 
 const closeMenu = (event) => {
     nav[0].classList.remove('ocult');
@@ -90,8 +106,8 @@ const addHoverOptions = () => {
 }
 
 function handleLaptopChange(e) {
+    console.log("laptop: "+e.matches);
     if (e.matches) {
-        menu.classList.add('ocult');
         menuPrincipal.parentElement.style=`
             display: flex;
             align-items: center;
@@ -113,8 +129,54 @@ function handleLaptopChange(e) {
         menuPrincipal.parentElement.style=`
             display: none;
             backdrop-filter: blur(2px);`;
+        mainMenu.style=`
+            width:100vw;`;
         menu.classList.remove('ocult');
     }
+}
+
+function handleTabletChange(e){
+    console.log("tablet: "+e.matches);
+    if (e.matches) {
+        menu.removeEventListener('click',openMenu);
+        menu.addEventListener('click', openMenuTablet);
+        menuPrincipal.parentElement.style=`
+            display: none;
+            backdrop-filter: blur(2px);
+            position:relative;`;
+        mainMenu.style=`
+            width:40vw;
+            position: absolute;`;
+        menu.classList.remove('ocult');
+        nav[0].classList.remove('ocult');
+        nav[1].classList.remove('ocult');
+        main.classList.remove('ocult');
+        //header.classList.remove('ocult');
+        footer.classList.remove('ocult');
+        //navigate.style.background="var(--bgColor-nav)";
+        navigate.style.background="var(--header-transparent)";
+        console.log("open menu tablet");
+    }
+    else{
+        console.log("open menu");
+        menu.removeEventListener('click',openMenuTablet);
+        menu.addEventListener('click', openMenu);
+        handleLaptopChange(mediaQuery);
+    }
+}
+
+function abrirSugerencia(){
+    setTimeout(() => sugerencia.style=`
+        display: block;
+    `
+    ,100);
+}
+
+function cerrarSugerencia(){
+    setTimeout(() => sugerencia.style=`
+        display: none;
+    `
+    ,100);
 }
 
 
@@ -125,12 +187,16 @@ function handleLaptopChange(e) {
 */
 document.addEventListener("DOMContentLoaded", function (event) {
     ocultSubMenu();
-    menu.addEventListener('click', openMenu);
+    //menu.addEventListener('click', openMenu);
     exitMenu.addEventListener('click', closeMenu);
-    mediaQuery.addListener(handleLaptopChange);
+    mediaQuery.addEventListener('change',handleLaptopChange);
+    mqTablet.addEventListener('change',handleTabletChange);
     handleLaptopChange(mediaQuery);
+    handleTabletChange(mqTablet);
     addClickOptions();
     addHoverOptions();
+    sugerenciaBtn.addEventListener('click',abrirSugerencia);
+    sugerenciaClose.addEventListener('click',cerrarSugerencia);
     if(header!= null){
         document.querySelectorAll(".subitem__secondary")
         .forEach( tag  => tag.style="background-color: var(--subitem-principal-color);");

@@ -43,11 +43,18 @@ function rec_assets()
         '(max-width: 425px)'
     );
     wp_enqueue_style(
+        "media-tablet", 
+        get_template_directory_uri()."/assets/css/tablet.css", 
+        array(),
+        false,
+        '(min-width: 426px) and (max-width: 1023px)'
+    );
+    wp_enqueue_style(
         "media-laptop", 
         get_template_directory_uri()."/assets/css/laptop.css", 
         array(),
         false,
-        '(min-width: 769px)'
+        '(min-width: 1024px)'
     );
 
     wp_enqueue_script(
@@ -72,6 +79,38 @@ function rec_add_menus()
 }
 
 add_action("after_setup_theme", "rec_add_menus");
+
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+/*
+function custom_wp_mail_from( $original_email_address ) {
+    //Make sure the email is from the same domain 
+    //as your website to avoid being marked as spam.
+    return 'ayrtonfidel9@gmail.com';
+}
+add_filter('wp_mail_from', 'custom_wp_mail_from');*/
+
+/*
+function custom_search_result($query){
+    if($query->is_main_query() && !$query->is_search()){
+        $query->set('post_type',array('post'));
+    }
+}*/
+/*
+function add_query_vars_filter( $vars ) {
+    // add custom query vars that will be public
+    // https://codex.wordpress.org/WordPress_Query_Vars
+    $vars[] .= 'director_id';
+	$vars[] .= 'rating';
+	$vars[] .= 'movie_category_ids';
+    return $vars;
+}
+
+add_filter( 'query_vars', 'add_query_vars_filter' );*/
+
 /*
 // funcion para redireccionar ala front page si se pulsa en el boton de inicio
 function default_page(){
